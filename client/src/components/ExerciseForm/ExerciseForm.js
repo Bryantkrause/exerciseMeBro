@@ -3,8 +3,11 @@ import ExerciseContext from '../../utils/ExerciseContext'
 
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const ExerciseForm = (props) => {
+const ExerciseForm = () => {
   return (
+    <ExerciseContext.Consumer>
+      {
+        ({}) => (
     <Form>
       <Row form>
         <Col md={6}>
@@ -54,6 +57,9 @@ const ExerciseForm = (props) => {
       </FormGroup>
       <Button>Sign in</Button>
     </Form>
+        )
+}
+    </ExerciseContext.Consumer>
   );
 }
 
