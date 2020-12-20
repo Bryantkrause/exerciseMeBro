@@ -3,6 +3,7 @@ import React, { createContext} from 'react'
 const ExerciseContext = createContext({
   name: '',
   number: '',
+  birthday: '',
   exercise: '',
   exercises: [],
   handleInputChange: () => {},

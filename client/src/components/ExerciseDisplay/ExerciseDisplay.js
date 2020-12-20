@@ -15,18 +15,19 @@ return(
                     <th><h4>Name</h4></th>
                     <th><h4>Weight</h4></th>
                     <th><h4>Amount</h4></th>
+                    <th><h4>Number</h4></th>
                     <th><h4>Date</h4></th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    exercises.map(({_id, name, weight, number, timestamp}, i) =>
+                    exercises.map(({_id, name, weight, number, birthday}, i) =>
                     <tr key={_id}>
                         <td>{i+1}</td>
                         <td>{name}</td>
                         <td>{weight}</td>
                         <td>{number}</td>
-                        <td>{timestamp}</td>
+                        <td>{birthday}</td>
                     </tr>
                     )
                 }
