@@ -12,6 +12,7 @@ return(
         <Table dark>
             <thead>
                 <tr>
+                    <th><h4>id</h4></th>
                     <th><h4>Name</h4></th>
                     <th><h4>Weight</h4></th>
                     <th><h4>Amount</h4></th>

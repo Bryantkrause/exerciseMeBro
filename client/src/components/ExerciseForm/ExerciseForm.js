@@ -7,29 +7,29 @@ const ExerciseForm = () => {
   return (
     <ExerciseContext.Consumer>
       {
-        ({}) => (
+        ({handleAddExercise, handleInputChange, name, number, weight}) => (
     <Form>
       <Row form>
         <Col md={3}>
           <FormGroup>
             <Label for="exercise">Exercise</Label>
-            <Input type="text" name="exercise" id="exercise" placeholder="super cool exercise" />
+            <Input type="text" name="exercise" id="exercise" placeholder="super cool exercise" onChange={handleInputChange} value={name}/>
           </FormGroup>
         </Col>
         <Col md={3}>
           <FormGroup>
-            <Label for="amount">Amount</Label>
-            <Input type="number" name="amount" id="amount" placeholder="5" />
+            <Label for="number">Amount</Label>
+            <Input type="number" name="number" id="number" placeholder="5" onChange={handleInputChange} value={number}/>
           </FormGroup>
         </Col>
       </Row>
       <Col md={3}>
       <FormGroup>
         <Label for="weight">Weight</Label>
-        <Input type="number" name="weight" id="weight" placeholder="999"/>
+        <Input type="number" name="weight" id="weight" placeholder="999" onChange={handleInputChange} value={weight}/>
       </FormGroup>
       </Col>
-      <Button>Submit</Button>
+      <Button id="submit" onClick={handleAddExercise}>Submit</Button>
     </Form>
         )
 }

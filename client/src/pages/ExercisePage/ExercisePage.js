@@ -21,12 +21,10 @@ state = {
       axios.post('/exercise', {
           name: this.state.name,
           number: this.state.number,
-          exercise: this.state.exercise,
           weight: this.state.weight,
-          birthday: this.state.birthday,
       })
       .then(({data}) => {
-          let arr = JSON.parse.name(JSON.stringify(this.state.exercises))
+          let arr = JSON.parse(JSON.stringify(this.state.exercises))
           arr.push(data)
           this.setState({exercises: arr, name: ''})
       })

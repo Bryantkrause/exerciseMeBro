@@ -4,6 +4,7 @@ const ExerciseContext = createContext({
   name: '',
   number: '',
   birthday: '',
+  weight: '',
   exercise: '',
   exercises: [],
   handleInputChange: () => {},
