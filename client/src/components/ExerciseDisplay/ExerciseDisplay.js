@@ -12,10 +12,10 @@ return(
         <Table dark>
             <thead>
                 <tr>
+                    <th><h4>#</h4></th>
                     <th><h4>id</h4></th>
                     <th><h4>Name</h4></th>
                     <th><h4>Weight</h4></th>
-                    <th><h4>Amount</h4></th>
                     <th><h4>Number</h4></th>
                     <th><h4>Date</h4></th>
                 </tr>
@@ -25,6 +25,7 @@ return(
                     exercises.map(({_id, name, weight, number, birthday}, i) =>
                     <tr key={_id}>
                         <td>{i+1}</td>
+                        <td>{_id}</td>
                         <td>{name}</td>
                         <td>{weight}</td>
                         <td>{number}</td>

@@ -13,6 +13,7 @@ state = {
   weight: '',
   exercises: [],
   handleInputChange: e => {
+      console.log(e.target)
       this.setState({[e.target.name]: e.target.value})
   },
   handleAddExercise: e => {
@@ -21,12 +22,12 @@ state = {
       axios.post('/exercise', {
           name: this.state.name,
           number: this.state.number,
-          weight: this.state.weight,
+          weight: this.state.weight
       })
       .then(({data}) => {
           let arr = JSON.parse(JSON.stringify(this.state.exercises))
           arr.push(data)
-          this.setState({exercises: arr, name: ''})
+          this.setState({exercises: arr})
       })
   },
   handleToggleExercise: () => {},
