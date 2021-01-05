@@ -39,7 +39,17 @@ state = {
       })
       .catch(e => console.error('no exercise for you', e))
   },
-  handleRemoveExercise: () => {}
+  handleRemoveExercise: _id => {
+    console.log(_id)
+    axios.delete(`/exercise/${_id}`,)
+    .then( r => {
+      axios.get('/exercises')
+      .then( ({data}) => this.setState({ exercises: data }))
+      console.log('data deleted')
+      console.log(this.state)
+    })
+    .catch(e => console.error('cant delete', e))
+  }
 }
 
 componentDidMount() {

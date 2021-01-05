@@ -7,7 +7,7 @@ const ExerciseDisplay = () => {
 return(
     <ExerciseContext.Consumer>
 {
-({exercises}) => (
+({exercises, handleRemoveExercise}) => (
     <>
         <Table dark>
             <thead>
@@ -18,6 +18,7 @@ return(
                     <th><h4>Weight</h4></th>
                     <th><h4>Number</h4></th>
                     <th><h4>Date</h4></th>
+                    <th><h4>Delete Exercise</h4></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@ return(
                         <td>{weight}</td>
                         <td>{number}</td>
                         <td>{birthday}</td>
+                        <td><button onClick={() => handleRemoveExercise(_id)}>Delete </button></td>
                     </tr>
                     )
                 }
