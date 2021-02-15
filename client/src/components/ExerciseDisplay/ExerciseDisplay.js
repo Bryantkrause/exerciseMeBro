@@ -4,7 +4,7 @@ import ExerciseContext from '../../utils/ExerciseContext'
 import { Col, Row, Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
 
 const ExerciseDisplay = () => {
-    'need to update display'
+    
 return(
     <ExerciseContext.Consumer>
 {
