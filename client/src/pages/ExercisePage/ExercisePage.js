@@ -9,7 +9,7 @@ const { getExercise, addExercise, deleteExercise } = ExerciseAPI
 const Exercises = () => {
 
 const [exerciseState, setExerciseState] = useState({
-
+    exercises: []
 })
 
 useEffect(() =>{
@@ -18,6 +18,7 @@ useEffect(() =>{
         console.log(data)
         let exercises = []
         exercises.push(data)
+        console.log(exercises)
         setExerciseState({ ...exerciseState, exercises})
     })
     .catch(e => console.error(e))
@@ -25,7 +26,10 @@ useEffect(() =>{
 
 return (
     <ExerciseContext.Provider value={exerciseState}>
+        <div class="container">
+        <ExerciseForm/>
         <ExerciseDisplay/>
+        </div>
     </ExerciseContext.Provider>
 )
 

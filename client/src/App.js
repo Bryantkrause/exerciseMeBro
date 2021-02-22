@@ -5,7 +5,7 @@ import {
   Route
   } from 'react-router-dom'
 import Exercises from './pages/ExercisePage'
-import Charts from './pages/ChartPage'
+// import Charts from './pages/ChartPage'
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
       <Exercises/>
       </Route>
       <Route exact path="/chart">
-      <Charts/>
+      {/* <Charts/> */}
       </Route>
 
       </Switch>

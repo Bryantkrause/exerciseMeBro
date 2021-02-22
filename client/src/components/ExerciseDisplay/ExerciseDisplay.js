@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ExerciseContext from '../../utils/ExerciseContext'
 
 import { Col, Row, Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
 
 const ExerciseDisplay = () => {
     
+    const {exercises, handleRemoveExercise} = useContext(ExerciseContext)
+    console.log(exercises)
+
 return(
-    <ExerciseContext.Consumer>
-{
-({exercises, handleRemoveExercise}) => (
-    <>
+  
         <Table dark>
             <thead>
                 <tr>
@@ -24,27 +24,26 @@ return(
             </thead>
             <tbody>
                 {
-                    exercises.map(({_id, name, weight, number, birthday}, i) =>
-                    <tr key={_id}>
-                        <td>{i+1}</td>
-                        <td>{_id}</td>
-                        <td>{name}</td>
-                        <td>{weight}</td>
-                        <td>{number}</td>
-                        <td>{birthday}</td>
-                        <td><button onClick={() => handleRemoveExercise(_id)}>Delete </button></td>
-                    </tr>
-                    )
+                    // console.log(exercises)
+                    <td>{exercises[0]}</td>
+                // exercises.map(exercise => exercise.map(exercis =>{
+                //     <tr key={exercis._id}>
+                //         {/* <td>{i+1}</td> */}
+                //         <td>{exercis._id}</td>
+                //         <td>{exercis.name}</td>
+                //         <td>{exercis.weight}</td>
+                //         <td>{exercis.number}</td>
+                //         <td>{exercis.birthday}</td>
+                //         <td><button onClick={() => handleRemoveExercise(exercis._id)}>Delete </button></td>
+                //     </tr>}
+                //     )
+                // )
                 }
             </tbody>
         </Table>
 
 
-    </>
-)
 
-}
-    </ExerciseContext.Consumer>
 )
 }
 
