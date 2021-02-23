@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import ExerciseContext from '../../utils/ExerciseContext'
 
-import { Col, Row, Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
+import { Table } from 'reactstrap';
 
 const ExerciseDisplay = () => {
     
     const {exercises, handleRemoveExercise} = useContext(ExerciseContext)
-    console.log(exercises)
 
 return(
   
@@ -24,21 +23,17 @@ return(
             </thead>
             <tbody>
                 {
-                    // console.log(exercises)
-                    <td>{exercises[0]}</td>
-                // exercises.map(exercise => exercise.map(exercis =>{
-                //     <tr key={exercis._id}>
-                //         {/* <td>{i+1}</td> */}
-                //         <td>{exercis._id}</td>
-                //         <td>{exercis.name}</td>
-                //         <td>{exercis.weight}</td>
-                //         <td>{exercis.number}</td>
-                //         <td>{exercis.birthday}</td>
-                //         <td><button onClick={() => handleRemoveExercise(exercis._id)}>Delete </button></td>
-                //     </tr>}
-                //     )
-                // )
+                        
+                        // exercises.map(exersice => exersice.map(exersice =>{
+                        //     console.log(exersice)
+                        // }))
+                        exercises.map(exercises=> {
+                            <td>1</td>
+                            console.log(exercises)
+                        })
+
                 }
+                
             </tbody>
         </Table>
 

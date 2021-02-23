@@ -16,7 +16,7 @@ useEffect(() =>{
     getExercise()
     .then(({data}) => {
         console.log(data)
-        let exercises = []
+        let exercises = JSON.parse(JSON.stringify(exerciseState.exercises))
         exercises.push(data)
         console.log(exercises)
         setExerciseState({ ...exerciseState, exercises})
@@ -26,7 +26,7 @@ useEffect(() =>{
 
 return (
     <ExerciseContext.Provider value={exerciseState}>
-        <div class="container">
+        <div className="container">
         <ExerciseForm/>
         <ExerciseDisplay/>
         </div>
