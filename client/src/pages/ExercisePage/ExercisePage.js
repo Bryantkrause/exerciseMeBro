@@ -1,37 +1,60 @@
-import React, { useEffect, useState } from 'react'
-import ExerciseAPI from '../../utils/ExerciseAPI'
+import React from 'react'
+import axios from 'axios'
 import ExerciseContext from '../../utils/ExerciseContext'
 import ExerciseForm from '../../components/ExerciseForm'
 import ExerciseDisplay from '../../components/ExerciseDisplay'
 
-const { getExercise, addExercise, deleteExercise } = ExerciseAPI
+class Exercises extends React.Component {
+state = {
+  name: '',
+  number: '',
+  birthday: '',
+  weight: '',
+  data: '',
+  exercise: '',
+  exercises: [],
+  inputChange: e => { 
+    this.setState({[e.target.name]: e.target.value})
+},
+  getExercises: () => {},
+  renderChart: () => {},
+  exerciseSubmit: e => {
+      e.preventDefault()
+      axios.post('/exercises', {
+        name: this.state.name,
+        number: this.state.number,
+        weight: this.state.weight,
+        exercise: this.state.exercise
+      })
+      .then(({data}) => {
+          let arr = JSON.parse(JSON.stringify(this.state.exercises))
+          arr.push(data)
+          this.setState({exercises: arr, name: '',number: '',weight: ''})
+      })
+  },
+  getExercises: () => {
+      console.log('lets get them excercises')
+      axios.get('/tasks')
+      .then(({data}) =>{
+        let arr = JSON.parse(JSON.stringify(this.state.exercises))
+        arr = data
+        this.setState({exercises: arr})
+      })
+  },
+  handleRemoveExercise: () => {}
 
-const Exercises = () => {
+}
+render () {
+    return (
+        <ExerciseContext.Provider value={this.state}>
+            <div className="container">
+            <ExerciseForm/>
+            <ExerciseDisplay/>
+            </div>
 
-const [exerciseState, setExerciseState] = useState({
-    exercises: []
-})
-
-useEffect(() =>{
-    getExercise()
-    .then(({data}) => {
-        console.log(data)
-        let exercises = JSON.parse(JSON.stringify(exerciseState.exercises))
-        exercises.push(data)
-        console.log(exercises)
-        setExerciseState({ ...exerciseState, exercises})
-    })
-    .catch(e => console.error(e))
-}, [])
-
-return (
-    <ExerciseContext.Provider value={exerciseState}>
-        <div className="container">
-        <ExerciseForm/>
-        <ExerciseDisplay/>
-        </div>
-    </ExerciseContext.Provider>
-)
+        </ExerciseContext.Provider>
+    )
+}
 
 }
 

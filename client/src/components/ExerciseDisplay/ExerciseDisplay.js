@@ -1,45 +1,52 @@
 import React, { useContext } from 'react'
 import ExerciseContext from '../../utils/ExerciseContext'
-
 import { Table } from 'reactstrap';
 
-const ExerciseDisplay = () => {
-    
-    const {exercises, handleRemoveExercise} = useContext(ExerciseContext)
 
-return(
-  
-        <Table dark>
-            <thead>
-                <tr>
-                    <th><h4>#</h4></th>
-                    <th><h4>id</h4></th>
-                    <th><h4>Name</h4></th>
-                    <th><h4>Weight</h4></th>
-                    <th><h4>Number</h4></th>
-                    <th><h4>Date</h4></th>
-                    <th><h4>Delete Exercise</h4></th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                        
-                        // exercises.map(exersice => exersice.map(exersice =>{
-                        //     console.log(exersice)
-                        // }))
-                        exercises.map(exercises=> {
-                            <td>1</td>
-                            console.log(exercises)
-                        })
+const ExerciseDisplay = () =>{
+return (
+<ExerciseContext.Consumer>
+{
+({exercises, getExercises}) =>(
 
-                }
-                
-            </tbody>
-        </Table>
+<Table dark>
+<thead>
+    <tr>
+                                 <th><h4>#</h4></th>
+                                <th><h4>Exercise</h4></th>
+                                <th><h4>Weight</h4></th>
+                                <th><h4>Amount</h4></th>
+                                <th><h4>Date</h4></th>
 
+    </tr>
+</thead>
 
+<tbody onLoad={getExercises}>
+    {
+        exercises.map( ({_id, exercise, birthday, weight, number}, i ) =>
+        <tr key={_id}>
+            <td>{i+1}</td>
+            <td>{exercise}</td>
+            <td>{weight}</td>
+            <td>{number}</td>
+            <td>{birthday}</td>
+
+        </tr>
+        
+        )
+    }
+
+</tbody>
+
+</Table>
 
 )
 }
+</ExerciseContext.Consumer>
 
-export default ExerciseDisplay;
+)
+
+
+}
+
+export default ExerciseDisplay

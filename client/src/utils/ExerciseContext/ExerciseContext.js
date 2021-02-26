@@ -9,6 +9,7 @@ const ExerciseContext = createContext({
   exercise: '',
   exercises: [],
   handleInputChange: () => {},
+  getExercises: () => {},
   renderChart: () => {},
   handleAddExercise: () => {},
   handleToggleExercise: () => {},
