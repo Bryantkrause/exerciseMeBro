@@ -16,11 +16,10 @@ state = {
   inputChange: e => { 
     this.setState({[e.target.name]: e.target.value})
 },
-  getExercises: () => {},
   renderChart: () => {},
   exerciseSubmit: e => {
       e.preventDefault()
-      axios.post('/exercises', {
+      axios.post('/exercise', {
         name: this.state.name,
         number: this.state.number,
         weight: this.state.weight,
@@ -43,7 +42,13 @@ state = {
   },
   handleRemoveExercise: () => {}
 
+  
 }
+componentDidMount() {
+  axios.get('/exercises')
+  .then(({data}) => this.setState({ exercises: data}))
+}
+
 render () {
     return (
         <ExerciseContext.Provider value={this.state}>
