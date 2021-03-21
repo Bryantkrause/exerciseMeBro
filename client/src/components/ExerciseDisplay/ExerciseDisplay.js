@@ -23,10 +23,10 @@ return (
 
 <tbody onLoad={getExercises}>
     {
-        exercises.map( ({_id, exercise, birthday, weight, number}, i ) =>
+        exercises.map( ({_id, name, birthday, weight, number}, i ) =>
         <tr key={_id}>
             <td>{i+1}</td>
-            <td>{exercise}</td>
+            <td>{name}</td>
             <td>{weight}</td>
             <td>{number}</td>
             <td>{birthday}</td>

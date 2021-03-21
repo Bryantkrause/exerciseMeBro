@@ -16,11 +16,10 @@ state = {
   inputChange: e => { 
     this.setState({[e.target.name]: e.target.value})
 },
-  getExercises: () => {},
   renderChart: () => {},
   exerciseSubmit: e => {
       e.preventDefault()
-      axios.post('/exercises', {
+      axios.post('/exercise', {
         name: this.state.name,
         number: this.state.number,
         weight: this.state.weight,
@@ -34,7 +33,7 @@ state = {
   },
   getExercises: () => {
       console.log('lets get them excercises')
-      axios.get('/tasks')
+      axios.get('/exercises')
       .then(({data}) =>{
         let arr = JSON.parse(JSON.stringify(this.state.exercises))
         arr = data
@@ -44,6 +43,11 @@ state = {
   handleRemoveExercise: () => {}
 
 }
+componentDidMount() { // When the page loads grab the data from the database and update the exercises array
+  axios.get('/exercises')
+    .then( ({data}) => this.setState({ exercises: data }))
+}
+
 render () {
     return (
         <ExerciseContext.Provider value={this.state}>

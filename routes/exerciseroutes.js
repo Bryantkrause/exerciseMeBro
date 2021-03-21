@@ -21,15 +21,10 @@ module.exports = app => {
 
   // POST one exercise
   app.post('/exercise', (req, res) => {
+    console.log("posted")
     Exercise.create(req.body)
-      .then(({ _id }) => {
-        User.updateOne({_id: req.body.user},
-           {$push: {exercise: _id}
-        })
           .then(() => res.sendStatus(200))
           .catch(e => console.error(e))
-      })
-      .catch(e => console.error(e))
   })
 
 
