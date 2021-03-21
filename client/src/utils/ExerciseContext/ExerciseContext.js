@@ -11,7 +11,7 @@ const ExerciseContext = createContext({
   inputChange: () => {},
   getExercises: () => {},
   renderChart: () => {},
-  handleAddExercise: () => {},
+  exerciseSubmit: () => {},
   handleToggleExercise: () => {},
   handleRemoveExercise: () => {}
 })

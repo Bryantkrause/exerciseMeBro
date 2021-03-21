@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ExerciseContext from '../../utils/ExerciseContext'
 import { Table } from 'reactstrap';
 
@@ -21,7 +21,7 @@ return (
     </tr>
 </thead>
 
-<tbody onLoad={getExercises}>
+<tbody >
     {
         exercises.map( ({_id, name, birthday, weight, number}, i ) =>
         <tr key={_id}>

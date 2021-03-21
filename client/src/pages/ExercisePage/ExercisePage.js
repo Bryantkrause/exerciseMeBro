@@ -42,6 +42,7 @@ state = {
   },
   handleRemoveExercise: () => {}
 
+  
 }
 componentDidMount() { // When the page loads grab the data from the database and update the exercises array
   axios.get('/exercises')
